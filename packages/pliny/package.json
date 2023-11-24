@@ -1,8 +1,8 @@
 {
-  "name": "pliny",
+  "name": "@shipixen/pliny",
   "description": "Main entry point for pliny components",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     "./*": "./*",
@@ -27,15 +27,15 @@
     "@docsearch/react": "^3.5.0",
     "@giscus/react": "^2.3.0",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
-    "contentlayer": "^0.3.4",
+    "@shipixen/next-contentlayer-module": "^1.0.1",
     "copyfiles": "^2.4.1",
     "github-slugger": "^1.4.0",
     "js-yaml": "4.1.0",
     "kbar": "0.1.0-beta.44",
-    "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "probe-image-size": "^7.2.3",
     "remark": "^14.0.2",
+    "shipixen-contentlayer": "^1.0.1",
     "unist-util-visit": "^4.1.0"
   },
   "peerDependencies": {

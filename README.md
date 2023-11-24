@@ -382,3 +382,11 @@ Newsletter form component to add a subscriber to your mailing list.
 [katex]: https://katex.org/
 [rehype-citation]: https://github.com/timlrx/rehype-citation
 [tnsb]: https://github.com/timlrx/tailwind-nextjs-starter-blog
+
+## Release
+
+```bash
+nvm use
+yarn
+npm run release
+```
