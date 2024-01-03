@@ -8,6 +8,7 @@ export interface TOCInlineProps {
   asDisclosure?: boolean
   exclude?: string | string[]
   collapse?: boolean
+  headerLabel?: string
 }
 
 /**
@@ -37,6 +38,7 @@ const TOCInline = ({
   asDisclosure = false,
   exclude = '',
   collapse = false,
+  headerLabel = 'Table of Contents',
 }: TOCInlineProps) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
@@ -61,7 +63,7 @@ const TOCInline = ({
     <>
       {asDisclosure ? (
         <details open={!collapse}>
-          <summary className="ml-6 pt-2 pb-2 text-xl font-bold">Table of Contents</summary>
+          <summary className="ml-6 pt-2 pb-2 text-xl font-bold">{headerLabel}</summary>
           <div className="ml-6">{tocList}</div>
         </details>
       ) : (

@@ -2,11 +2,23 @@ import React, { useRef, useState } from 'react'
 
 export interface NewsletterFormProps {
   title?: string
+  errorMessage?: string
+  successMessage?: string
+  emailLabel?: string
+  emailPlaceholder?: string
+  buttonText?: string
+  buttonTextSuccess?: string
   apiUrl?: string
 }
 
 const NewsletterForm = ({
   title = 'Subscribe to the newsletter',
+  errorMessage = 'Your e-mail address is invalid or you are already subscribed!',
+  successMessage = "You're subscribed !  🎉",
+  emailLabel = 'Email address',
+  emailPlaceholder = 'Enter your email',
+  buttonText = 'Sign up',
+  buttonTextSuccess = 'Thank you!',
   apiUrl = '/api/newsletter',
 }: NewsletterFormProps) => {
   const inputEl = useRef<HTMLInputElement>(null)
@@ -30,7 +42,7 @@ const NewsletterForm = ({
     const { error } = await res.json()
     if (error) {
       setError(true)
-      setMessage('Your e-mail address is invalid or you are already subscribed!')
+      setMessage(errorMessage)
       return
     }
 
@@ -45,13 +57,13 @@ const NewsletterForm = ({
       <form className="flex flex-col sm:flex-row" onSubmit={subscribe}>
         <div>
           <label htmlFor="email-input">
-            <span className="sr-only">Email address</span>
+            <span className="sr-only">{emailLabel}</span>
             <input
               autoComplete="email"
               className="focus:ring-primary-600 w-72 rounded-md px-4 focus:border-transparent focus:outline-none focus:ring-2 dark:bg-black"
               id="email-input"
               name="email"
-              placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
+              placeholder={subscribed ? successMessage : emailPlaceholder}
               ref={inputEl}
               required
               type="email"
@@ -67,7 +79,7 @@ const NewsletterForm = ({
             type="submit"
             disabled={subscribed}
           >
-            {subscribed ? 'Thank you!' : 'Sign up'}
+            {subscribed ? buttonTextSuccess : buttonText}
           </button>
         </div>
       </form>

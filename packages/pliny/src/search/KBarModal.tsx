@@ -11,7 +11,19 @@ import {
   useRegisterActions,
 } from 'kbar'
 
-export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading: boolean }) => {
+export const KBarModal = ({
+  actions,
+  isLoading,
+  loadingLabel,
+  noResultsLabel,
+  searchLabel,
+}: {
+  actions: Action[]
+  isLoading: boolean
+  loadingLabel: string
+  noResultsLabel: string
+  searchLabel: string
+}) => {
   useRegisterActions(actions, [actions])
 
   return (
@@ -36,15 +48,18 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
                   />
                 </svg>
               </span>
-              <KBarSearch className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500" />
+              <KBarSearch
+                defaultPlaceholder={searchLabel}
+                className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500"
+              />
               <kbd className="inline-block whitespace-nowrap rounded border px-1.5 align-middle font-medium leading-4 tracking-wide text-xs text-gray-400 border-gray-400">
                 ESC
               </kbd>
             </div>
-            {!isLoading && <RenderResults />}
+            {!isLoading && <RenderResults noResultsLabel={noResultsLabel} />}
             {isLoading && (
               <div className="block border-t border-gray-100 px-4 py-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
-                Loading...
+                {loadingLabel}
               </div>
             )}
           </div>
@@ -54,7 +69,7 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
   )
 }
 
-const RenderResults = () => {
+const RenderResults = ({ noResultsLabel }: { noResultsLabel: string }) => {
   const { results } = useMatches()
 
   if (results.length) {
@@ -111,7 +126,7 @@ const RenderResults = () => {
   } else {
     return (
       <div className="block border-t border-gray-100 px-4 py-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
-        No results for your search...
+        {noResultsLabel}
       </div>
     )
   }

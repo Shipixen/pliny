@@ -38,7 +38,16 @@ export interface KBarConfig {
 export const KBarSearchProvider: FC<{
   children: ReactNode
   kbarConfig: KBarSearchProps
-}> = ({ kbarConfig, children }) => {
+  loadingLabel?: string
+  noResultsLabel?: string
+  searchLabel?: string
+}> = ({
+  kbarConfig,
+  children,
+  loadingLabel = 'Loading...',
+  noResultsLabel = 'No results match your search.',
+  searchLabel = 'Search...',
+}) => {
   const router = useRouter()
   const { searchDocumentsPath, defaultActions, onSearchDocumentsLoad } = kbarConfig
   const [searchActions, setSearchActions] = useState<Action[]>([])
@@ -81,7 +90,13 @@ export const KBarSearchProvider: FC<{
 
   return (
     <KBarProvider actions={defaultActions}>
-      <KBarModal actions={searchActions} isLoading={!dataLoaded} />
+      <KBarModal
+        loadingLabel={loadingLabel}
+        noResultsLabel={noResultsLabel}
+        searchLabel={searchLabel}
+        actions={searchActions}
+        isLoading={!dataLoaded}
+      />
       {children}
     </KBarProvider>
   )
