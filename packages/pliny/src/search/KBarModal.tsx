@@ -50,7 +50,7 @@ export const KBarModal = ({
               </span>
               <KBarSearch
                 defaultPlaceholder={searchLabel}
-                className="border border-solid border-transparent h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:border-gray-500/20 focus:shadow-none focus:outline-none focus:!ring-transparent focus:!ring-offset-transparent dark:text-gray-200 dark:placeholder-gray-500 transition-all"
+                className="border-b border-solid border-transparent h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:border-gray-500/20 focus:shadow-none focus:outline-none focus:!ring-transparent focus:!ring-offset-transparent dark:text-gray-200 dark:placeholder-gray-500 transition-all"
               />
               <kbd className="inline-block whitespace-nowrap rounded border px-1.5 align-middle font-medium leading-4 tracking-wide text-xs text-gray-400 border-gray-400">
                 ESC
