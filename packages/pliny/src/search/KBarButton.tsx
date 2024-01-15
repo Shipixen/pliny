@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import { useKBar } from 'kbar'
+import { useKBar } from '@shipixen/kbar'
 
 /**
  * Button wrapper component that triggers the KBar modal on click.

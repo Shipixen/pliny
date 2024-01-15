@@ -26,7 +26,7 @@ export interface SearchConfigProps {
  *
  * For Kbar:
  * ```
- * import { useKBar } from 'kbar'
+ * import { useKBar } from '@shipixen/kbar'
  * const { query } = useKBar()
  * ```
  *
@@ -42,7 +42,7 @@ export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) =>
             {children}
           </AlgoliaSearchProvider>
         )
-      case 'kbar':
+      case '@shipixen/kbar':
         return (
           <KBarSearchProvider kbarConfig={searchConfig.kbarConfig}>{children}</KBarSearchProvider>
         )

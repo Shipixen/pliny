@@ -9,7 +9,7 @@ import {
   useMatches,
   Action,
   useRegisterActions,
-} from 'kbar'
+} from '@shipixen/kbar'
 
 export const KBarModal = ({
   actions,

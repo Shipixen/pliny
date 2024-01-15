@@ -1,6 +1,6 @@
 import { useState, useEffect, FC, ReactNode } from 'react'
-import type { Action } from 'kbar'
-import { KBarProvider } from 'kbar'
+import type { Action } from '@shipixen/kbar'
+import { KBarProvider } from '@shipixen/kbar'
 import { useRouter } from 'next/navigation.js'
 import { KBarModal } from './KBarModal'
 import { CoreContent, MDXDocument } from '../utils/contentlayer'
@@ -14,7 +14,7 @@ export interface KBarSearchProps {
 }
 
 export interface KBarConfig {
-  provider: 'kbar'
+  provider: '@shipixen/kbar'
   kbarConfig: KBarSearchProps
 }
 
@@ -27,7 +27,7 @@ export interface KBarConfig {
  *
  * To toggle the modal or search from child components, use the search context:
  * ```
- * import { useKBar } from 'kbar'
+ * import { useKBar } from '@shipixen/kbar'
  * const { query } = useKBar()
  * ```
  * See https://github.com/timc1/kbar/blob/main/src/types.ts#L98-L106 for typings.

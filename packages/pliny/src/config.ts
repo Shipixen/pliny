@@ -104,7 +104,7 @@ const sampleConfig: PlinyConfig = {
     },
   },
   search: {
-    provider: 'kbar', // kbar or algolia
+    provider: '@shipixen/kbar', // kbar or algolia
     kbarConfig: {
       searchDocumentsPath: 'search.json', // path to load documents to search relative to public folder
     },
