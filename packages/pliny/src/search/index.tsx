@@ -42,7 +42,7 @@ export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) =>
             {children}
           </AlgoliaSearchProvider>
         )
-      case '@shipixen/kbar':
+      case 'kbar':
         return (
           <KBarSearchProvider kbarConfig={searchConfig.kbarConfig}>{children}</KBarSearchProvider>
         )

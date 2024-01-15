@@ -14,7 +14,7 @@ export interface KBarSearchProps {
 }
 
 export interface KBarConfig {
-  provider: '@shipixen/kbar'
+  provider: 'kbar'
   kbarConfig: KBarSearchProps
 }
 
