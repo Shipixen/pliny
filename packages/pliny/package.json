@@ -2,7 +2,7 @@
   "name": "@shipixen/pliny",
   "description": "Main entry point for pliny components",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "type": "module",
   "exports": {
     "./*": "./*",
