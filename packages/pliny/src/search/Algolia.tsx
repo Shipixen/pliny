@@ -4,13 +4,14 @@ import { createPortal } from 'react-dom'
 import { useRouter } from 'next/navigation.js'
 import Link from 'next/link.js'
 import { useDocSearchKeyboardEvents } from '@docsearch/react'
-import type { LinkProps } from 'next/link'
 import type {
   DocSearchModal as DocSearchModalType,
   DocSearchProps,
   DocSearchModalProps,
+  InternalDocSearchHit,
+  StoredDocSearchHit,
 } from '@docsearch/react'
-import type { InternalDocSearchHit, StoredDocSearchHit } from '@docsearch/react/dist/esm/types'
+import type { LinkProps } from 'next/link'
 
 export type AlgoliaSearchProps = {
   algoliaConfig: DocSearchProps
