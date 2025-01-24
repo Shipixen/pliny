@@ -4,6 +4,17 @@ import * as _jsx_runtime from 'react/jsx-runtime'
 import ReactDOM from 'react-dom'
 import type { MDXComponents } from 'mdx/types'
 
+// Add interface for React internals
+interface ReactWithInternals {
+  __CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE: any
+  __SERVER_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE: any
+}
+
+// Extend React module
+declare module 'react' {
+  interface React extends ReactWithInternals {}
+}
+
 export interface MDXLayoutRenderer {
   code: string
   components?: MDXComponents
@@ -29,8 +40,16 @@ export const useMDXComponent = (
   return React.useMemo(() => getMDXComponent(code, globals), [code, globals])
 }
 
-export const MDXLayoutRenderer = ({ code, components, ...rest }: MDXLayoutRenderer) => {
-  const Mdx = useMDXComponent(code)
+const getReactWithInternals = () => React as unknown as ReactWithInternals
 
+export const MDXLayoutRenderer = ({ code, components, ...rest }: MDXLayoutRenderer) => {
+  const r = getReactWithInternals()
+  const reactInternals =
+    r.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE ||
+    r.__SERVER_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE
+
+  r.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = reactInternals
+
+  const Mdx = useMDXComponent(code)
   return <Mdx components={components} {...rest} />
 }
