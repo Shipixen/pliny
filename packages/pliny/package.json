@@ -2,7 +2,7 @@
   "name": "@shipixen/pliny",
   "description": "Main entry point for pliny components",
   "homepage": "https://github.com/timlrx/pliny",
-  "version": "1.0.13",
+  "version": "1.0.18",
   "type": "module",
   "exports": {
     "./*": "./*",
@@ -20,16 +20,14 @@
   "scripts": {
     "dev": "tsup && cp -fR dist/* ./ && tsup --config tsup.ui.config.ts && rimraf dist && node add-use-client.mjs",
     "build": "tsup && cp -fR dist/* ./ && tsup --config tsup.ui.config.ts && rimraf dist && node add-use-client.mjs && yarn copyfiles",
-    "copyfiles": "copyfiles -f public/algolia.css search"
+    "copyfiles": "cp -R public/algolia.css search"
   },
   "author": "Timothy Lin <timothy0336@hotmail.com> (https://timlrx.com)",
   "dependencies": {
     "@docsearch/react": "^3.5.0",
     "@giscus/react": "^2.3.0",
-    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@shipixen/kbar": "1.0.0",
     "@shipixen/next-contentlayer-module": "^1.0.1",
-    "copyfiles": "^2.4.1",
     "github-slugger": "^1.4.0",
     "js-yaml": "4.1.0",
     "next-themes": "^0.2.1",
@@ -40,11 +38,10 @@
   },
   "peerDependencies": {
     "next": ">=13.0.0",
-    "react": "^17.0.2 || ^18.0.0",
-    "react-dom": "^17.0.2 || ^18.0.0"
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   },
   "devDependencies": {
-    "@types/copyfiles": "^2",
     "next": "13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
