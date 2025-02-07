@@ -1,11 +1,13 @@
 import React from 'react'
-import { AlgoliaSearchProvider } from './Algolia'
+// import { AlgoliaSearchProvider } from './Algolia'
 import { KBarSearchProvider } from './KBar'
 
-import type { AlgoliaConfig } from './Algolia'
+// import type { AlgoliaConfig } from './Algolia'
 import type { KBarConfig } from './KBar'
 
-export type SearchConfig = AlgoliaConfig | KBarConfig
+// export type SearchConfig = AlgoliaConfig | KBarConfig
+export type SearchConfig = KBarConfig
+
 export interface SearchConfigProps {
   searchConfig: SearchConfig
   children: React.ReactNode
@@ -36,12 +38,6 @@ export interface SearchConfigProps {
 export const SearchProvider = ({ searchConfig, children }: SearchConfigProps) => {
   if (searchConfig && searchConfig.provider) {
     switch (searchConfig.provider) {
-      case 'algolia':
-        return (
-          <AlgoliaSearchProvider algoliaConfig={searchConfig.algoliaConfig}>
-            {children}
-          </AlgoliaSearchProvider>
-        )
       case 'kbar':
         return (
           <KBarSearchProvider kbarConfig={searchConfig.kbarConfig}>{children}</KBarSearchProvider>
