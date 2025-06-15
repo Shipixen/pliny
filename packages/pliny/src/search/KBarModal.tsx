@@ -17,20 +17,30 @@ export const KBarModal = ({
   loadingLabel,
   noResultsLabel,
   searchLabel,
+  positionerClassName,
+  containerClassName,
+  searchClassName,
 }: {
   actions: Action[]
   isLoading: boolean
   loadingLabel: string
   noResultsLabel: string
   searchLabel: string
+  positionerClassName?: string
+  containerClassName?: string
+  searchClassName?: string
 }) => {
   useRegisterActions(actions, [actions])
 
   return (
     <KBarPortal>
-      <KBarPositioner className="z-10 bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
+      <KBarPositioner
+        className={`z-50 bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50 ${positionerClassName}`}
+      >
         <KBarAnimator className="w-full max-w-xl">
-          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900">
+          <div
+            className={`overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 ${containerClassName}`}
+          >
             <div className="flex items-center space-x-4 p-4">
               <span className="block w-5">
                 <svg
@@ -50,7 +60,7 @@ export const KBarModal = ({
               </span>
               <KBarSearch
                 defaultPlaceholder={searchLabel}
-                className="border-b border-l-0 border-t-0 border-r-0 border-solid border-transparent h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:border-gray-500/20 focus:shadow-none focus:outline-none focus:!ring-transparent focus:!ring-offset-transparent dark:text-gray-200 dark:placeholder-gray-500 transition-all"
+                className={`border-b border-l-0 border-t-0 border-r-0 border-solid border-transparent h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:border-gray-500/20 focus:shadow-none focus:outline-none focus:!ring-transparent focus:!ring-offset-transparent dark:text-gray-200 dark:placeholder-gray-500 transition-all ${searchClassName}`}
               />
               <kbd className="inline-block whitespace-nowrap rounded border px-1.5 align-middle font-medium leading-4 tracking-wide text-xs text-gray-400 border-gray-400">
                 ESC
