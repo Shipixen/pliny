@@ -30,7 +30,7 @@
     ]
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.0",
+    "@changesets/cli": "^2.29.8",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/react": "18.3.3",
@@ -47,6 +47,12 @@
     ]
   },
   "packageManager": "yarn@3.6.1",
+  "resolutions": {
+    "js-yaml": "4.1.0"
+  },
+  "overrides": {
+    "js-yaml": "4.1.0"
+  },
   "dependencies": {
     "node-fetch": "^3.3.2"
   }
